@@ -82,12 +82,12 @@ public class IFloatWindowImpl extends IFloatWindow {
     public void show() {
         if (once) {
             mFloatView.init();
-            once = false;
-            isShow = true;
-        } else {
-            getView().setVisibility(View.VISIBLE);
-            isShow = true;
         }
+
+        once = false;
+        getView().setVisibility(View.VISIBLE);
+        isShow = true;
+
         if (mB.mViewStateListener != null) {
             mB.mViewStateListener.onShow();
         }
