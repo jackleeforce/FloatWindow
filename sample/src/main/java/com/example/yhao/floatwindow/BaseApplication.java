@@ -46,7 +46,9 @@ public class BaseApplication extends Application {
                 .setDesktopShow(true)
                 .build();
 
-        //FloatWindow.get().hide();
+        FloatWindow.get().hide();
+
+//        FloatWindow.get().show();
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
