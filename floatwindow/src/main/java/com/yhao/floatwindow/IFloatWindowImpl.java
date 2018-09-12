@@ -98,9 +98,9 @@ public class IFloatWindowImpl extends IFloatWindow {
 
     @Override
     public void hide() {
-        if (once || !isShow) {
-            return;
-        }
+//        if (once || !isShow) {
+//            return;
+//        }
         getView().setVisibility(View.INVISIBLE);
         isShow = false;
         if (mB.mViewStateListener != null) {
@@ -207,6 +207,15 @@ public class IFloatWindowImpl extends IFloatWindow {
                                 changeY = event.getRawY() - lastY;
                                 newX = (int) (mFloatView.getX() + changeX);
                                 newY = (int) (mFloatView.getY() + changeY);
+
+                                if (newY < 0 - Util.getStatusBarHeight(mB.mApplicationContext)) {
+                                    newY = 0 - Util.getStatusBarHeight(mB.mApplicationContext);
+                                }
+                                int i = Util.getScreenHeight(mB.mApplicationContext) - Util.getStatusBarHeight(mB.mApplicationContext) -  v.getHeight();
+                                if (newY > i) {
+                                    newY = i;
+                                }
+
                                 mFloatView.updateXY(newX, newY);
                                 if (mB.mViewStateListener != null) {
                                     mB.mViewStateListener.onPositionUpdate(newX, newY);

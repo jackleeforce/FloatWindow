@@ -39,13 +39,14 @@ public class BaseApplication extends Application {
                 .setHeight(Screen.width, 0.2f)
                 .setX(Screen.width, 0.8f)
                 .setY(Screen.height, 0.3f)
-                .setMoveType(MoveType.slide,100,-100)
+                .setMoveType(MoveType.slide)
                 .setMoveStyle(500, new BounceInterpolator())
-                .setFilter(true, A_Activity.class, C_Activity.class)
                 .setViewStateListener(mViewStateListener)
                 .setPermissionListener(mPermissionListener)
                 .setDesktopShow(true)
                 .build();
+
+        //FloatWindow.get().hide();
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
