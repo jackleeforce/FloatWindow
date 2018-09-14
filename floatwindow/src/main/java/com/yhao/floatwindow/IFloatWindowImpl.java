@@ -82,9 +82,9 @@ public class IFloatWindowImpl extends IFloatWindow {
     public void show() {
         if (once) {
             mFloatView.init();
+            once = false;
         }
 
-        once = false;
         getView().setVisibility(View.VISIBLE);
         isShow = true;
 
@@ -95,6 +95,11 @@ public class IFloatWindowImpl extends IFloatWindow {
 
     @Override
     public void hide() {
+        if (once) {
+            mFloatView.init();
+            once = false;
+        }
+
         getView().setVisibility(View.INVISIBLE);
         isShow = false;
         if (mB.mViewStateListener != null) {

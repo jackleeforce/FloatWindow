@@ -50,6 +50,8 @@ public class BaseApplication extends Application {
 
 //        FloatWindow.get().show();
 
+        FloatWindow.destroy();
+
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
